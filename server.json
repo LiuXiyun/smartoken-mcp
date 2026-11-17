@@ -1,15 +1,15 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.liuxiyun/smartoken-mcp",
+  "name": "io.github.LiuXiyun/smartoken-mcp",
   "title": "SmarToken",
   "description": "Discover models and make text chat calls through the SmarToken API.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://thesmartoken.com",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "smartoken-mcp",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "transport": {
         "type": "stdio"
       },

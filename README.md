@@ -1,6 +1,6 @@
 # SmarToken MCP
 
-<!-- mcp-name: io.github.liuxiyun/smartoken-mcp -->
+<!-- mcp-name: io.github.LiuXiyun/smartoken-mcp -->
 
 A stdio MCP server exposing `list_models` (public model metadata and pricing) and `chat_completion` (one text request). Model list and pricing can change; consult [the live model endpoint](https://thesmartoken.com/v1/models) and [pricing](https://thesmartoken.com/pricing).
 
