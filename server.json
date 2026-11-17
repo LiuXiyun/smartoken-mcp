@@ -3,13 +3,13 @@
   "name": "io.github.LiuXiyun/smartoken-mcp",
   "title": "SmarToken",
   "description": "Discover models and make text chat calls through the SmarToken API.",
-  "version": "0.1.1",
-  "websiteUrl": "https://thesmartoken.com",
+  "version": "0.1.2",
+  "websiteUrl": "https://thesmartoken.com/register?utm_source=mcp_registry&utm_medium=directory&utm_campaign=smartoken_mcp",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "smartoken-mcp",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "transport": {
         "type": "stdio"
       },

@@ -2,6 +2,8 @@
 
 <!-- mcp-name: io.github.LiuXiyun/smartoken-mcp -->
 
+[Create a SmarToken account](https://thesmartoken.com/register?utm_source=github&utm_medium=repository&utm_campaign=smartoken_mcp)
+
 A stdio MCP server exposing `list_models` (public model metadata and pricing) and `chat_completion` (one text request). Model list and pricing can change; consult [the live model endpoint](https://thesmartoken.com/v1/models) and [pricing](https://thesmartoken.com/pricing).
 
 The model lookup and one paid DeepSeek V4.1 Flash completion have been verified against the production API through the official Python MCP client. Other models and individual host applications should be verified in their own environments.
