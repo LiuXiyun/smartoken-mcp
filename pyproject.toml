@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "smartoken-mcp"
-version = "0.1.2"
+version = "0.1.3"
 description = "Local MCP server for SmarToken's text Chat Completions API"
 readme = "PYPI.md"
 license = "MIT"

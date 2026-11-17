@@ -34,6 +34,29 @@ class ServerTests(unittest.IsolatedAsyncioTestCase):
         with patch.dict(os.environ,{},clear=True),patch.object(app,'http_client',side_effect=AssertionError('must not call')):
             with self.assertRaises(ValueError): await app.chat_completion('example','hello',50)
             with self.assertRaises(ValueError): await app.chat_completion('example','',50)
+    async def test_onboarding_errors_direct_users_to_the_right_place(self):
+        cases = [
+            (401, {'error': {'type': 'invalid_request_error'}}, '/dashboard/api-keys', 'API key'),
+            (402, {'error': {'type': 'insufficient_quota', 'topup_url': 'https://evil.example/phish'}}, '/dashboard/billing', 'balance'),
+            (402, {'error': {'type': 'budget_limit_exceeded'}}, '/dashboard/api-keys', 'budget'),
+            (402, {'error': {'type': 'other'}}, '/dashboard/billing', 'check'),
+        ]
+        for status, body, link, hint in cases:
+            with self.subTest(status=status, body=body):
+                async def handler(request): return httpx.Response(status, json=body)
+                factory = lambda: httpx.AsyncClient(transport=httpx.MockTransport(handler), timeout=20)
+                with patch.object(app, 'http_client', factory), patch.dict(os.environ, {'SMTOKEN_API_KEY': 'test-key'}):
+                    with self.assertRaises(RuntimeError) as e: await app.chat_completion('example', 'hello', 50)
+                self.assertIn(link, str(e.exception))
+                self.assertIn(hint.lower(), str(e.exception).lower())
+                self.assertNotIn('evil.example', str(e.exception))
+
+    async def test_missing_key_error_contains_signup_and_key_links(self):
+        with patch.dict(os.environ, {}, clear=True):
+            with self.assertRaises(ValueError) as e: await app.chat_completion('example', 'hello', 50)
+        self.assertIn('https://thesmartoken.com/register', str(e.exception))
+        self.assertIn('https://thesmartoken.com/dashboard/api-keys', str(e.exception))
+
     async def test_server_error_never_retries_or_leaks_body(self):
         count=0
         async def handler(request):
