@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smartoken-mcp"
+version = "0.1.0"
+description = "Local MCP server for SmarToken's text Chat Completions API"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = ["mcp>=1.30,<2", "httpx>=0.27,<1"]
+
+[project.scripts]
+smartoken-mcp = "smartoken_mcp:main"
+
+[tool.setuptools]
+py-modules = ["smartoken_mcp"]
