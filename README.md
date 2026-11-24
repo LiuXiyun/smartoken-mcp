@@ -12,8 +12,8 @@ The model lookup and one paid DeepSeek V4.1 Flash completion have been verified 
 
 ## Get started
 
-1. [Create an account or sign in](https://thesmartoken.com/register). Registration does not include free API credit.
-2. Open [Billing](https://thesmartoken.com/dashboard/billing) and add prepaid credit before making billable calls. Check the payment amount before confirming.
+1. [Create an account or sign in](https://thesmartoken.com/register). Eligible approved accounts may receive a one-time $1 trial credit valid for 30 days after issue; see the [trial terms](https://thesmartoken.com/campaign).
+2. Open [Billing](https://thesmartoken.com/dashboard/billing) and check your available credit before making billable calls. Add prepaid credit if needed, and check the payment amount before confirming.
 3. Open [API keys](https://thesmartoken.com/dashboard/api-keys) and create a key. Copy the full key when shown; existing keys cannot be revealed again. Set an appropriate budget and model scope.
 4. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and configure your MCP client below. Use your own key and keep it private.
 
